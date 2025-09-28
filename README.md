@@ -4,9 +4,9 @@ A collaborative project to create and discuss figures for a description and asse
 
 ## How it works
 
-All community members (and ACCESS-NRI staff) can get write write access to this repository (our preference over using forks). To get write access, you need to create an issue and request access, please use this issue template.
+All community members (and ACCESS-NRI staff) can get write write access to this repository (our preference over using forks). To get write access, you need to create an issue and request access, [please use this issue template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).
 
-All aspects of the project are tracked through [issues](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues). Create an issue to represent each small task, _a single issue is used for each Figure_. Issues will develop to include discussion of analysis methods and figures associated with each task. A mega-issue exists here to track all the evaluation metrics. Feel free to add new Figure-issues as sub-issues.
+All aspects of the project are tracked through [issues](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues). Create an issue to represent each small task, _a single issue is used for each Figure_. Issues will develop to include discussion of analysis methods and figures associated with each task. [A mega-issue exists here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) to track all the evaluation metrics. Feel free to add new Figure-issues as sub-issues.
 
 To start contributing to the code, you have two options:
  1. push your code changes to `main` directly. 
@@ -21,22 +21,22 @@ For the first option above omit the branch steps below. This is option 2:
  3. `cd` into `notebooks`;
  4. Copy the example notebook, and start hacking away;
  5. When ready to upload, do `git add <path to your notebook>`, `git commit -m "A helpful message"` and `git push -u REMOTE_NAME branch_name` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`);
- 6. Make a PR on github to merge it into main
+ 6. Make a PR on github to merge it into main (you can delete your branch at this point)
 
-(This assumes you have write access to the repo, if you don't you'll need to ask for it.)
+(This assumes you have write access to the repo, if you don't you'll need to [ask for it](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).)
 
 
 ### Guidelines for creating Figures
- - Create an issue (one per figure) for Figure you are looking to create and add it as a sub-issue to the mega-issue.
+ - Create an issue (one per figure) for Figure you are looking to create and add it as a sub-issue to [the mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1).
  - When posting in the issue, **please include path to notebook and the commit hash that created the Figure** (also gives run information but you can include this in the post for convenience).
  - Try to include CM2 comparison!
  - Average over the last 10 years
- - Once you've created your Figure / uploaded your notebook, please tick off your assigned task.
- - If it turns out it is not currently possible to complete the metric due to missing diagnostics. Please note that in an issue [here](https://github.com/ACCESS-NRI/access-cm3-configs/issues) so we can provide that output in future runs.
+ - Once you've created your Figure / uploaded your notebook, please tick off your assigned task in [the list](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1).
+ - If it turns out it is not currently possible to complete the metric due to missing diagnostics. Please note that in an issue [here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/2) so we can provide that output in future runs.
 
 ## Notebooks
 
-Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-om3-25km-paper-1/blob/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
+Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
 
 To allow us later to run all the notebooks at once, please use the boilerplate at the top of the script, namely this second cell:
 ```python
@@ -60,7 +60,7 @@ print("ESM datastore path: ",esm_file)
 print("Plot folder path: ",plotfolder)
 ```
 
-It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `00_template_notebook.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/00_template_notebook.ipynb):
+It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `00_template_notebook.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/00_template_notebook.ipynb):
 ```python
 datastore = intake.open_esm_datastore(
     esm_file,
@@ -73,7 +73,7 @@ datastore = intake.open_esm_datastore(
     ]
 )
 ```
-and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the script. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/mkfigs.sh))
+and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the script. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/mkfigs.sh))
 
 Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this script](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/8f636ad6862dd141378c0f0f470c4c8c895dea38/notebooks/mkfigs.sh#L62-L63). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
 

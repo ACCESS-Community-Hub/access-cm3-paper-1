@@ -18,7 +18,7 @@ For the first option above omit the branch steps below. This is option 2:
 
  1. Clone this repository locally;
  2. Make a new branch with your name `git checkout -b claire`;
- 3. `cd` into `notebooks`;
+ 3. `cd` into `notebooks/polished-python/`;
  4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details);
  5. When ready to upload, do `git add <path to your notebook>`, `git commit -m "A helpful message"` and `git push -u REMOTE_NAME branch_name` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`);
  6. Make a PR on github to merge it into main (you can delete your branch at this point)
@@ -37,7 +37,7 @@ For the first option above omit the branch steps below. This is option 2:
 
 ## Notebooks
 
-Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/main/notebooks). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
+Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/main/notebooks/polished-python/). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
 
 To allow us later to run all the notebooks at once, please use the boilerplate at the top of the script, namely this second cell:
 ```python
@@ -61,7 +61,7 @@ print("ESM datastore path: ",esm_file)
 print("Plot folder path: ",plotfolder)
 ```
 
-It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `00_template_notebook.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/00_template_notebook.ipynb):
+It is important that you use `esm_file` and if needed `plotfolder` in your script as done in `00_template_notebook.ipynb` (this allows us to re-run your script later with different experiments), here's [examples](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb):
 ```python
 datastore = intake.open_esm_datastore(
     esm_file,
@@ -74,8 +74,19 @@ datastore = intake.open_esm_datastore(
     ]
 )
 ```
-and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the script. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/mkfigs.sh))
+and `plt.savefig(plotfolder+'exampleout.png')`. This cell needs to have the tag `parameters`, copying this cell will copy the tag as well but [you can also set this on other cells](https://papermill.readthedocs.io/en/latest/usage-parameterize.html) should you wish to parameterize other parts of the script. This allows us to [pass in arguments externally using papermill](https://papermill.readthedocs.io/en/latest/usage-cli.html) (see [mkfigs.sh for details](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/mkfigs.sh))
 
-Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this script](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/8f636ad6862dd141378c0f0f470c4c8c895dea38/notebooks/mkfigs.sh#L62-L63). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
+Once you have finished your notebook, please add the name of your notebook to the `array` variable in [this script](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/mkfigs.sh). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
 
+## Other options for scripts and notebooks
+
+Note that in this folder `access-cm3-paper-1/notebooks`. There are three kinds of scripts/notebooks shared in this directory:
+1. `polished-python`;
+1. `sandbox-python`;
+1. `non-python`.
+
+In more detail:
+ - `polished-python` contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` template as a starting point and have been added to the `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` script (most preferred); 
+ - `sandbox-python` contains scripts that create evaluation using python but are not using the workflow above;
+ - `non-python` contains any kind of script that creates an evaluation figure.
 

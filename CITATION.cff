@@ -25,6 +25,15 @@ authors:
     email: christine.chung@bom.gov.au
     affiliation: Bureau of Meteorology, Melbourne, Australia
     orcid: 'https://orcid.org/0000-0002-5510-6609'
+  - given-names: Felicity
+    family-names: Chun
+    email: felicity.chun@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Romain
+    family-names: Boucher
+    email: romain.boucher@anu.edu.au
+    affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-cm3-paper-1'
 url: 'https://github.com/ACCESS-Community-Hub/access-cm3-paper-1'
 repository-artifact: >-

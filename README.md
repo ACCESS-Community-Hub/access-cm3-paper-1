@@ -2,6 +2,11 @@
 
 A collaborative project to create and discuss figures for a description and assessment paper(s) for [ACCESS-CM3](https://github.com/ACCESS-NRI/access-cm3-configs). Help is _very_ welcome! Please see `How it works` below to get started.
 
+## Experiment descriptions
+
+Currently we welcome feedback on: 
+ 1. '/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json' CM3 25km ocean which is a present day control with constant forcing (year numbers essentially meaningless). This run is not made from a released configuration/build so there is no guarantees of it being available or re-producible long-term!
+
 ## How it works
 
 All community members (and ACCESS-NRI staff) can get write access to this repository (our preference over using forks). To get write access, you need to create an issue and request access, [please use this issue template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).
@@ -44,8 +49,8 @@ To allow us later to run all the notebooks at once, please use the boilerplate a
 #parameters
 
 ### USER EDIT start
-esm_file='/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json'
-plotfolder='/g/data/tm70/cyb561/access-om3-paper-1/notebooks/mkfigs_output/2/'
+esm_file='/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json'
+plotfolder='/g/data/tm70/ek4684/access-om3-paper-1/notebooks/mkfigs_output4/'
 dpi=300
 ### USER EDIT stop
 

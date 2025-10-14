@@ -33,6 +33,11 @@ authors:
     family-names: Boucher
     email: romain.boucher@anu.edu.au
     affiliation: Australia's Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Ellie Qing Yee
+    family-names: Ong
+    email: ellie.ong@monash.edu
+    affiliation: ARC Centre of Excellence for 21st Century Weather, School of Earth, Atmosphere and Environment, Monash University, Clayton, VIC, Australia
+    orcid: 'https://orcid.org/0000-0001-5898-7635'
 
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-cm3-paper-1'
 url: 'https://github.com/ACCESS-Community-Hub/access-cm3-paper-1'

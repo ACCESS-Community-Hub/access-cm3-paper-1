@@ -2,6 +2,9 @@
 
 A collaborative project to create and discuss figures for a description and assessment paper(s) for [ACCESS-CM3](https://github.com/ACCESS-NRI/access-cm3-configs). Help is _very_ welcome! Please see `How it works` below to get started.
 
+TL;DR
+#TODO: add workflow
+
 ## Experiment descriptions
 
 Currently we welcome feedback on: 
@@ -96,3 +99,4 @@ In more detail:
  - `sandbox-python` contains scripts that create evaluation using python but are not using the workflow above;
  - `non-python` contains any kind of script that creates an evaluation figure.
 
+#TODO: more words about the carrot for doing `polished-python`.

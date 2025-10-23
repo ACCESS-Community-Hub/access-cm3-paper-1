@@ -3,7 +3,8 @@
 A collaborative project to create and discuss figures for a description and assessment paper(s) for [ACCESS-CM3](https://github.com/ACCESS-NRI/access-cm3-configs). Help is _very_ welcome! Please see `How it works` below to get started.
 
 TL;DR
-#TODO: add workflow
+#TODO: add workflow example (and clean it up)
+https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/19
 
 ## Experiment descriptions
 

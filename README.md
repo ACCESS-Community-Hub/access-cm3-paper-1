@@ -1,25 +1,38 @@
 # access-cm3-paper-1
 
-A collaborative project to create and discuss figures for a description and assessment paper(s) for [ACCESS-CM3](https://github.com/ACCESS-NRI/access-cm3-configs). Your help is welcome! Please see `How it works` below to get started.
+A collaborative project to create and discuss figures for description and assessment paper(s) for [ACCESS-CM3](https://github.com/ACCESS-NRI/access-cm3-configs). Your help is welcome! Please see `How it works` [below](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/18_improve_docs?tab=readme-ov-file#how-it-works) to get started.
 
 ## Experiment descriptions
 
 Currently we welcome feedback on: 
- 1. `/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json` CM3 25km ocean which is a present day control with constant forcing (year numbers essentially meaningless). This run is not made from a released configuration/build so there is no guarantees of it being available or re-producible long-term! Ocean initial conditions are taken from a "cold start" in OM3 (i.e. WOA2023 January).
- 2.  `/g/data/p73/archive/non-CMIP/ACCESS-CM2/cj877` CM2 25km present day control run for comparison. Again year numbers are meaningless but in this case start from 1. We recommend comparing the first N years of this run to CM3 runs to assess the spin-up.
+ 1. `/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json`: CM3 25km ocean which is a present day control with constant forcing (year numbers are essentially meaningless). This run is not made from a released configuration/build so there is no guarantees of it being available or re-producible long-term! Ocean initial conditions are taken from a "cold start" in OM3 (i.e. WOA2023 January).
+ 2.  `/g/data/p73/archive/non-CMIP/ACCESS-CM2/cj877`: CM2 25km present day control run for comparison. Again year numbers are meaningless but in this case start from "1". We recommend comparing the first N years of this run to CM3 runs to assess the spin-up.
 
 ## How it works
 
 All community members (and ACCESS-NRI staff) can get write access to this repository (our preference over using forks). To get write access, you need to create an issue and request access, [please use this issue template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).
 
-All aspects of the project are tracked through [issues](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues). Create an issue to represent each small task, _a single issue is used for each Figure_. Issues will develop to include discussion of analysis methods and figures associated with each task. [A mega-issue exists here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) to track all the evaluation metrics. Feel free to add new Figure-issues as sub-issues.
+All aspects of the project are tracked through [issues](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues). Create an issue to represent each small task, _a single issue is used for each Figure_. Issues will develop to include discussion of analysis methods and figures associated with each task. [A mega-issue exists here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) to track all the evaluation metrics, evaluation metrics that are "ported" from OM3 evaluation are [tracked here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/5). Feel free to add new Figure-issues as sub-issues.
 
+### Options for scripts and notebooks
+We have 3 different levels of scripts to enable contributions from anyone, regardless of their language or workflow pregerence. Inside this directory `access-cm3-paper-1/notebooks`, there are three kinds of shared scripts/notebooks:
+1. `polished-python`;
+2. `sandbox-python`;
+3. `non-python`.
+
+In more detail:
+ - `polished-python` contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` template as a starting point and have been added to the `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` script (most preferred); 
+ - `sandbox-python` contains scripts that create evaluation using python, but are not using the above workflow;
+ - `non-python` contains any kind of script that creates an evaluation figure.
+
+### Getting started
 To start contributing to the code, you have two options:
  1. Push your code changes to the `main` branch directly. 
  2. If you'd prefer your code changes to be reviewed, create a new branch directly in this repository, make your changes there, and then open a pull request from your branch into `main`. 
 
-For option 1, follow the steps below but omit the branch steps (e.g., step 2 and 7)
-For option 2, carry out all steps below. For more detailed instruction see section below _How to set up a local copy of `access-cm3-paper-1` repo and create a notebook on a branch_
+**For option 1**, follow the steps below but omit the branch steps (i.e. step 2 and 7).
+
+**For option 2**, carry out all steps below. For more detailed instructions [see section below](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/18_improve_docs?tab=readme-ov-file#how-to-set-up-a-local-copy-of-access-cm3-paper-1-repo-and-create-a-notebook-on-a-branch) _How to set up a local copy of `access-cm3-paper-1` repo and create a notebook on a branch_
 
  1. Clone the `access-cm3-paper-1` repository locally
  2. Make a new branch with your name `git checkout -b username`
@@ -99,7 +112,7 @@ You can also see the changes you've made so far here:
 The specifics of a commit can be found in the _Git hash_ (also referred to as a _commit hash_). This is a 40-character hexadecimal string unique identifier for every single commit in a Git repository, e.g., `b7a4f2c10903c989efe3694481c9325d2040ed2b`, which can be found here: 
 `https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/commit/`
 
-8. **Please include this Git hash** when sharing a Figure on your github issue as detailed below in the _Guidelines for Creating Figures_.
+8. **Please include this Git hash** when sharing a Figure on your github issue as detailed next in the _Guidelines for Creating Figures_.
 
 
 ### Guidelines for creating Figures
@@ -153,14 +166,3 @@ This cell needs to have the tag `parameters`, copying this cell will copy the ta
 
 Once you have finished your notebook, *please add the name of your notebook to the `array` variable* in [this notebook](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/mkfigs.sh). This allows us to run your new notebook as part of a suite of evaluation notebooks when assessing new simulations.
 
-## Other options for scripts and notebooks
-
-Note that in this directory `access-cm3-paper-1/notebooks`, there are three kinds of shared scripts/notebooks:
-1. `polished-python`;
-2. `sandbox-python`;
-3. `non-python`.
-
-In more detail:
- - `polished-python` contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` template as a starting point and have been added to the `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` script (most preferred); 
- - `sandbox-python` contains scripts that create evaluation using python, but are not using the above workflow;
- - `non-python` contains any kind of script that creates an evaluation figure.

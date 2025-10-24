@@ -2,10 +2,6 @@
 
 A collaborative project to create and discuss figures for a description and assessment paper(s) for [ACCESS-CM3](https://github.com/ACCESS-NRI/access-cm3-configs). Your help is welcome! Please see `How it works` below to get started.
 
-TL;DR
-#TODO: add workflow example (and clean it up)
-https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/19
-
 ## Experiment descriptions
 
 Currently we welcome feedback on: 
@@ -22,23 +18,88 @@ To start contributing to the code, you have two options:
  1. Push your code changes to the `main` branch directly. 
  2. If you'd prefer your code changes to be reviewed, create a new branch directly in this repository, make your changes there, and then open a pull request from your branch into `main`. 
 
-### Detailed instructions 
-
 For option 1, follow the steps below but omit the branch steps (e.g., step 2 and 7)
-For option 2, carry out all steps below 
+For option 2, carry out all steps below. For more detailed instruction see section below _How to set up a local copy of `access-cm3-paper-1` repo and create a notebook on a branch_
 
- 1. Clone this repository locally;
- 2. Make a new branch with your name `git checkout -b username`;
- 3. `cd` into `notebooks/polished-python/`;
- 4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details);
+ 1. Clone this repository locally
+ 2. Make a new branch with your name `git checkout -b username`
+ 3. `cd` into `notebooks/polished-python/`
+ 4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details)
  5. When ready to upload, run the commands:
     `git add <path to your notebook>`
     `git commit -m "A short decriptive message"`
     `git push -u REMOTE_NAME branch_name` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`)
- 7. Make a PR on github to merge it into main (you can delete your branch at this point)
+ 7. Make a PR on github to merge it into main and delete your branch
  8. Add your authorship details to the [citation file](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/CITATION.cff).
 
-Note: You need to have write access to the repo. If you don't, please [request it](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).)
+_Note_: You need to have write access to the repo. If you don't, please [request it](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).
+
+## Detailed instructions 
+### How to set up a local copy of `access-cm3-paper-1` repo and create a notebook on a branch
+
+1. Clone the `access-cm3-paper-1`git repository locally. Go to the directory on your local machine where you want to store the project, e.g., in your home directory or a subdirectory within it, such as `~/git/`:
+```bash
+    cd ~/git/
+    git clone https://github.com/ACCESS-Community-Hub/access-cm3-paper-1.git
+    cd ~/git/access-cm3-paper-1/notebooks/polished-python
+```
+
+2. Create a new branch called `YOUR-USERNAME` and switch to the current branch using the -b option:
+```bash
+git checkout -b YOUR-USERNAME
+```
+To list all branches (the `*` indicates the branch you're on) and print the name of the upstream branch:
+```bash
+git branch -vvl
+```
+
+3. Create `YOUR-NOTEBOOK.ipynb` by copying the template notebook `00_template_notebook.ipynb`:
+```bash
+cp 00_template_notebook.ipynb YOUR-NOTEBOOK.ipynb
+```
+The `git status` command displays information about the working directory (your local files), where you can see which changes have been staged, which haven’t, and which files aren’t being tracked by Git. 
+```bash
+git status
+```
+
+4. Add the new file to the staging area so it can be committed:
+```bash
+git add YOUR-NOTEBOOK.ipynb
+```
+
+Now, if you run `git status` again, you will see that your new file is staged to be committed:
+```bash
+git status 
+```
+You will also see the message *Changes to be committed:*, where the new file (to be committed) is written in green text.
+
+5. Commit the new file and give a meaningful short commit message:
+```bash
+git commit -m "Created notebook for xx evaluation of CM3"
+```
+
+6. As your local `YOUR-USERNAME` branch has no Upstream branch to the remote repository, you need to set the Upstream branch in order to push your changes to the remote repository:
+```bash
+git push --set-upstream origin YOUR-USERNAME
+```
+
+_Note_: if you're not using SSH keys, you will be prompted for your GitHub username and password. 
+If successful you should see the following output:
+```bash
+branch 'YOUR-USERNAME' set up to track 'origin/YOUR-USERNAME
+```
+Now you can see your active branch `YOUR-USERNAME` [here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/branches) on the remote git repository.
+
+7. Create a (draft) pull request for `YOUR-USERNAME` on GitHub by following the prompts, which will appear here:
+`https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/pulls`
+
+You can also see the changes you've made so far here: 
+`https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/commits/YOUR-USERNAME/`
+
+The specifics of a commit can be found in the _Git hash_ (also referred to as a _commit hash_). This is a 40-character hexadecimal string unique identifier for every single commit in a Git repository, e.g., `b7a4f2c10903c989efe3694481c9325d2040ed2b`, which can be found here: 
+`https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/commit/`
+
+8. **Please include this Git hash** when sharing a Figure on your github issue as detailed below in the _Guidelines for Creating Figures_.
 
 
 ### Guidelines for creating Figures
@@ -103,5 +164,3 @@ In more detail:
  - `polished-python` contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` template as a starting point and have been added to the `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` script (most preferred); 
  - `sandbox-python` contains scripts that create evaluation using python, but are not using the above workflow;
  - `non-python` contains any kind of script that creates an evaluation figure.
-
-#TODO: more words about the carrot for doing `polished-python`.

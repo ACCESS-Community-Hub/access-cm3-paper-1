@@ -21,7 +21,7 @@ To start contributing to the code, you have two options:
 For option 1, follow the steps below but omit the branch steps (e.g., step 2 and 7)
 For option 2, carry out all steps below. For more detailed instruction see section below _How to set up a local copy of `access-cm3-paper-1` repo and create a notebook on a branch_
 
- 1. Clone this repository locally
+ 1. Clone the `access-cm3-paper-1` repository locally
  2. Make a new branch with your name `git checkout -b username`
  3. `cd` into `notebooks/polished-python/`
  4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details)

@@ -15,7 +15,7 @@ All community members (and ACCESS-NRI staff) can get write access to this reposi
 All aspects of the project are tracked through [issues](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues). Create an issue to represent each small task, _a single issue is used for each Figure_. Issues will develop to include discussion of analysis methods and figures associated with each task. [A mega-issue exists here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) to track all the evaluation metrics, evaluation metrics that are "ported" from OM3 evaluation are [tracked here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/5). Feel free to add new Figure-issues as sub-issues.
 
 ### Options for scripts and notebooks
-We have 3 different levels of scripts to enable contributions from anyone, regardless of their language or workflow pregerence. Inside this directory `access-cm3-paper-1/notebooks`, there are three kinds of shared scripts/notebooks:
+We have 3 different levels of scripts to enable contributions from anyone, regardless of their language or workflow preference. Inside this directory `access-cm3-paper-1/notebooks`, there are three kinds of shared scripts/notebooks:
 1. `polished-python`;
 2. `sandbox-python`;
 3. `non-python`.

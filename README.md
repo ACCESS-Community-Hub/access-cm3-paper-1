@@ -39,9 +39,14 @@ To start contributing to the code, you have two options:
  3. `cd` into `notebooks/polished-python/`
  4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details)
  5. When ready to upload, run the commands:
+ 
     `git add YOUR-NOTEBOOK.ipynb`
+    
     `git commit -m "Notebook for xx evaluation of ACCESS-CM3"`
-    `git push -u REMOTE_NAME YOUR_BRANCH_NAME` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`)
+    
+    `git push -u REMOTE_NAME YOUR_BRANCH_NAME` 
+    
+    (`REMOTE_NAME` is the name of your GitHub remote, which defaults to `origin`)
  7. Make a PR on github to merge it into main then delete your branch
  8. Add your authorship details to the [citation file](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/CITATION.cff).
 

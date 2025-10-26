@@ -32,17 +32,17 @@ To start contributing to the code, you have two options:
 
 **For option 1**, follow the steps below but omit the branch steps (i.e. step 2 and 7).
 
-**For option 2**, carry out all steps below. For more detailed instructions [see section below](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/18_improve_docs?tab=readme-ov-file#how-to-set-up-a-local-copy-of-access-cm3-paper-1-repo-and-create-a-notebook-on-a-branch) _How to set up a local copy of `access-cm3-paper-1` repo and create a notebook on a branch_
+**For option 2**, carry out all steps below. For more detailed instructions see the section below _How to set up a local copy of `access-cm3-paper-1` repo and create a notebook on a branch_.
 
  1. Clone the `access-cm3-paper-1` repository locally
- 2. Make a new branch with your name `git checkout -b username`
+ 2. Make a new branch with your name `git checkout -b YOUR-USERNAME`
  3. `cd` into `notebooks/polished-python/`
  4. Copy the example notebook, and start hacking away (see `Notebooks` section below for the details)
  5. When ready to upload, run the commands:
-    `git add <path to your notebook>`
-    `git commit -m "A short decriptive message"`
-    `git push -u REMOTE_NAME branch_name` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`)
- 7. Make a PR on github to merge it into main and delete your branch
+    `git add YOUR-NOTEBOOK.ipynb`
+    `git commit -m "Notebook for xx evaluation of ACCESS-CM3"`
+    `git push -u REMOTE_NAME YOUR_BRANCH_NAME` (where `REMOTE_NAME` is the name of your GitHub remote, this defaults to `origin`)
+ 7. Make a PR on github to merge it into main then delete your branch
  8. Add your authorship details to the [citation file](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/CITATION.cff).
 
 _Note_: You need to have write access to the repo. If you don't, please [request it](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).
@@ -88,7 +88,7 @@ You will also see the message *Changes to be committed:*, where the new file (to
 
 5. Commit the new file and give a meaningful short commit message:
 ```bash
-git commit -m "Created notebook for xx evaluation of CM3"
+git commit -m "Notebook for xx evaluation of ACCESS-CM3"
 ```
 
 6. As your local `YOUR-USERNAME` branch has no Upstream branch to the remote repository, you need to set the Upstream branch in order to push your changes to the remote repository:

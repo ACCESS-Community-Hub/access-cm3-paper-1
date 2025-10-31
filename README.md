@@ -101,7 +101,8 @@ git commit -m "Notebook for xx evaluation of ACCESS-CM3"
 git push --set-upstream origin YOUR-USERNAME
 ```
 
-_Note_: if you're not using SSH keys, you will be prompted for your GitHub username and password. 
+_Note:_ For the `git push --set-upstream origin <branch-name>` command to successfully push to a remote repository, you need to have an authentication mechanism with that remote. It is recommended to use [SSH keys for authentication with Git](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
 If successful you should see the following output:
 ```bash
 branch 'YOUR-USERNAME' set up to track 'origin/YOUR-USERNAME

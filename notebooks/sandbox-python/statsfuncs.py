@@ -144,7 +144,7 @@ def detrend_xr(da, dim, nord=1):
     return da - fit
 
 def curvefit_sr (h, nord=3):
-   """Fit a nord order curve to function h(t). This function is for a 1-d numpy/pandas
+   """Fit a nord order curve to 1-d array h(t). This function is for a 1-d numpy/pandas
    object.
    """ 
    n = len(h)
@@ -154,7 +154,7 @@ def curvefit_sr (h, nord=3):
    return np.polyval(p, t)+h-h  # extra operations to return pandas obj (is there a better way?)
 
 def curvefit2 (h, t=None, nord=2):
-   """Fit a nord order curve for function h(t) onto t (independent variable). This function 
+   """Fit a nord order curve for 1-d array h(t) onto t (independent variable). This function 
    is for 1-d numpy/pandas objects. See, xr.DataArray.curvefit() for xr multi-dim arrays.
 
    This is equivalent to the following code:
@@ -172,7 +172,7 @@ def curvefit2 (h, t=None, nord=2):
    return df_hfit.sort_index()
 
 def curvefit (h, nord=3):
-   """Fit a nord order curve to function h(t). This function is for 1- or 2-d numpy/pandas
+   """Fit a nord order curve to 1-d array h(t). This function is for 1- or 2-d numpy/pandas
    objects.
    """
 
@@ -241,7 +241,7 @@ def extrap (df0, nord=3):
     return df1
 
 def polyintp_sr (h, g, t=None, nord=3):
-   """Interpolation of function h(t) to a new independent variable g, through a polynomial fit
+   """Interpolation of 1-d array h(t) to a new independent variable g, through a polynomial fit
    of order "nord". h must be 1-d.
 
    When g == h.index, this function just does the nord-order polynomial fit without

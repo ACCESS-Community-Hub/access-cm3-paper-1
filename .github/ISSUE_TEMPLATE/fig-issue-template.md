@@ -32,6 +32,7 @@ For polished python commits:
 
 For [mega issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1):
 - [ ] create issue for each evaluation diagnostic;
+- [ ] add new issue as a sub-issue to [the mega issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1);
 - [ ] check "ticked off" when person contributes script;
 - [ ] create link on mega issue to relevant script (once created);
 - [ ] Before the next `CM3 Dev-Eval Working group` meeting share in the related meeting post [here](https://forum.access-hive.org.au/t/cm3-dev-eval-working-group-meeting-minutes-2025/5393?u=cbull).

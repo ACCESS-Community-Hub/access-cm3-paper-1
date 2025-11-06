@@ -53,7 +53,7 @@ echo ""
 echo ""
 
 #make the figures
-#array=( 00_template_notebook )
+array=( ENSO_IOD_properties mean_state_eval )
 
 for FNAME in "${array[@]}"
 do

@@ -2513,7 +2513,6 @@ def commonality_analysis(y, X):
                  See:
                    comp_varianceDecomp_MLR5.py
                    comp_CommonalityAnalysisMLR_Copilot.py
-    in: ~/Library/CloudStorage/OneDrive-CSIRO/workDir/Eval_CMIP6/CMIP6_MME/forcedSig_workdir_Revision
 
     This function is approx. twice as fast as commonality_analysis_sk().
 
@@ -2571,7 +2570,6 @@ def commonality_analysis_sk(y, X):
                  See:
                    comp_varianceDecomp_MLR5.py
                    comp_CommonalityAnalysisMLR_Copilot.py
-    in: ~/Library/CloudStorage/OneDrive-CSIRO/workDir/Eval_CMIP6/CMIP6_MME/forcedSig_workdir_Revision
 
     Code by Copilot
     27-AUG-2025
@@ -2823,7 +2821,6 @@ def smooth_df(df, window_len=7, window='hanning'):
         return y
 
 def spectrum(xi, window_len=11, window='hanning', fs=1, dtrend=0):
-#def periodogram(x, window=None, window_len=7):
     """
     Example 4 (https://www.ncl.ucar.edu/Document/Functions/Built-in/specx_anal.shtml)
 
@@ -2866,7 +2863,7 @@ def spectrum(xi, window_len=11, window='hanning', fs=1, dtrend=0):
        https://currents.soest.hawaii.edu/ocn_data_analysis/_static/Spectrum.html
        https://www.ncl.ucar.edu/Document/Functions/Built-in/specx_anal.shtml (example 4)
 
-    Similar speeds for spectrum and spectrum0 below.
+    Similar speeds for spectrum0 below.
     """
 
     n = len(xi)
@@ -3328,8 +3325,13 @@ def anomaly (data):
         return
     else:
         dat2d = np.array(data).reshape([-1,12])
-        return (dat2d - dat2d.mean(axis=0)[np.newaxis,:]).reshape(data.shape)
+        data_dt (dat2d - dat2d.mean(axis=0)[np.newaxis,:]).reshape(data.shape)
 
+    if isinstance(data,pd.Series):
+        return pd.Series(data_dt,index=data.index)
+    else:
+        return data_dt
+     
 def anomaly_df (df_data,yrc12=None):
     """Calculates and removes the climatological annual cycle of a dataframe: df_data. The latter must
     be monthly data. Works for pd.Series() and pd.DataFrame(): 
@@ -3866,6 +3868,137 @@ def r_pvalues(df,corr=False):
 
     return p
 
+def comp_Stats1 (Ridx, Rstd=None, Rposneg="pos", time=None):
+    """ Computes simultaneous composite statistics (# of events, event durations,
+    compisite indices) based on the 1-D index timeseries Ridx. 
+
+    This is a python translation of my NCL function simcompStats. A comparison shows
+    this function reproduces the NCL function results (see, test_simcompStats.ncl).
+
+    This is a direct transaltion of my corresponding NCL function, and not "pythonised";
+    so, the code is long (but, at least, works).
+    
+    Inputs:
+        Ridx => A 1-d np.array (with no missing values)
+        Rstd => Threshold value for defining +ve or -ve events (default: 1 std)
+        Rposneg => Stats for positive/negative phase
+        time => DataFrame index or xarray time coordinate
+    Outputs:
+        dict_stats = A dictionary of pandas series, dataframes, etc.
+ 
+    Example:
+        f = xr.open_dataset('../../Hist_Paper/ObsACCESS_ClimIndices_SurfFluxFlds_hist.nc')
+        n34 = f['ts_HadSST'][5,240:2040]
+
+        #Ridx = n34.rolling(time=3, center=True).mean().dropna("time")
+        Ridx = ms.smooth(n34,3,'flat')  # same as above
+        dict_stats_pos = ms.comp_Stats1(Ridx.values,Rposneg="pos",time=Ridx.time)
+        dict_stats_neg = ms.comp_Stats1(Ridx.values,Rposneg="neg",time=Ridx.time)
+       
+    16-FEB-2023  Harun Rashid
+    """ 
+
+    assert len(Ridx.shape) == 1
+
+    if Rstd == None: Rstd = Ridx.std()
+
+    if time is None:
+       if hasattr(Ridx,'index'): time = Ridx.index
+       if hasattr(Ridx,'time'):  time = Ridx.time
+
+    if Rposneg == "neg":
+       rind = np.argwhere(Ridx < -Rstd).squeeze()
+    else:
+       rind = np.argwhere(Ridx > Rstd).squeeze()
+    nind = len(rind)
+
+    idifn0 = np.argwhere((rind[1:]-rind[0:-1]) > 1).squeeze()
+                               # Indices of days on which events end
+    ndifn = len(idifn0)+2 
+    idifn = np.zeros(ndifn,int)
+    idifn[1:ndifn-1] = idifn0
+    idifn[0] = -1              # Index of the start of the very first event
+    idifn[ndifn-1] = nind-1    # Index of the demise of the very last event 
+             
+    igapn = idifn[1:ndifn]-idifn[0:ndifn-1] # Event durations in days
+    ngapn = len(igapn)                   # Event number
+    day1n = rind[idifn[0:ndifn-1]+1]        # Begining day number for events
+    day2n = rind[idifn[1:ndifn]]          # Ending day number for events
+
+    mxnval = np.zeros(ngapn,float)
+    mxnloc = np.zeros(ngapn,int)
+
+    for i in range(ngapn):
+        if Rposneg == "neg":
+            mxnval[i] = Ridx[day1n[i]:day2n[i]+1].min()
+            mxnl = Ridx[day1n[i]:day2n[i]+1].argmin()
+        else:
+            mxnval[i] = Ridx[day1n[i]:day2n[i]+1].max()
+            mxnl = Ridx[day1n[i]:day2n[i]+1].argmax()
+        mxnloc[i] = day1n[i]+mxnl
+
+    df_Ridx = pd.Series(Ridx,index=range(len(Ridx)))
+    df_stats = pd.DataFrame([day1n,day2n,igapn,mxnval,mxnloc]).T
+    df_stats.columns = ['indStrt','indEnd','Durations','MaxMinval','MaxMinInd']
+    df_stats['Threshold'] = Rstd
+    df_stats['posneg'] = Rposneg
+    if time is not None:
+        if hasattr(time,'dt') and hasattr(time.dt,'strftime'):
+            time0 = time.dt.strftime('%Y-%m-%d')   # xarray time 
+        elif hasattr(time,'strftime,'):
+            time0 = time.strftime('%Y-%m-%d')      # pandas index
+        else:
+            time0 = time
+        df_stats['StartDate'] = time0[day1n].values
+        df_stats['EndDate'] = time0[day2n].values
+
+    dict_stats = {}
+    dict_stats['Ridx'] = df_Ridx
+    dict_stats['Ridx_sel'] = df_Ridx[rind]
+    dict_stats['stats'] = df_stats
+    #dict_stats['nevents'] = ngapn
+    #dict_stats['threshold'] = Rstd
+    #dict_stats['posneg'] = Rposneg
+
+    return dict_stats
+
+def comp_Stats (Ridx, Rstd=None, nsmooth=3, window='flat', time=None):
+    """ Computes simultaneous composite statistics (# of events, event durations,
+    compisite indices) based on the 1-D index timeseries Ridx. 
+
+    This function returns stats for both positive and negative phases.  
+
+    Inputs:
+        Ridx = A 1-d np.array (with no missing values)
+        Rstd => Threshold value for defining +ve or -ve events (default: 1 std)
+        nsmooth => Integer value for window length
+        window => smoothing window ['flat','hanning', 'hamming', 'bartlett' or 'blackman']
+        time => DataFrame index or xarray time coordinate
+    Outputs:
+        df_stats_pos,df_stats_neg = Two pandas dataframes for +ve and -ve phase stats
+ 
+    Example:
+        f = xr.open_dataset('../../Hist_Paper/ObsACCESS_ClimIndices_SurfFluxFlds_hist.nc')
+        n34 = f['ts_HadSST'][5,240:2040]
+
+        Ridx = n34.rolling(time=3, center=True).mean().dropna("time")
+        dict_stats = ms.comp_Stats(Ridx.values,time=Ridx.time)
+       
+    14-NOV-2023  Harun Rashid
+    """ 
+
+    if time is None:
+       if hasattr(Ridx,'index'): time = Ridx.index
+       if hasattr(Ridx,'time'):  time = Ridx.time
+
+    Ridx = smooth(Ridx,nsmooth,window)                     # 'flat' does the rolling means
+    temp = comp_Stats1(Ridx,Rstd=Rstd,Rposneg="pos",time=time)
+    df_stats_pos = temp['stats']
+    temp = comp_Stats1(Ridx,Rstd=Rstd,Rposneg="neg",time=time)
+    df_stats_neg = temp['stats']
+
+    return df_stats_pos,df_stats_neg
+
 def comp_thermoclineDepth (thzx,zaxis='lev',nlev=500):
     """
     Computations of thermocline depth, the maximum gradient of ocean
@@ -3927,13 +4060,12 @@ def comp_thermoclineDepth (thzx,zaxis='lev',nlev=500):
 def diag_table_df (df_data, ufld='UAS4'):
     """ Calculates ENSO related metrics from input Nino sea surface temperatures (SSTs), 
     zonal wind stress (TAUU), and thermoclice depth (THCD) data. This function is for
-    single realisations only (e.g., obs or an individual simulation). For multiple
-    ensemble simulations, use diag_table or diag_table_ens.
+    single realisations only (e.g., obs or an individual simulation). 
 
     NB: The columns names are assumed to be: 'SST3','TAUU/UAS4','THCD','SST4' (in any order).
     Inputs:
         df_data - pd.DataFrame with the following columns:
-           SST3 - Nino-3 SST data (full data, not anomalies)
+           SST3 - Nino-3 SST data (full timeseries, not anomalies)
            SST34 - Nino-3.4 SST data
            SST4 - Nino-4 SST data
            TAUU - Nino-4 zonal wind stress data, or
@@ -3942,7 +4074,7 @@ def diag_table_df (df_data, ufld='UAS4'):
            QNET3- Net surface heatfux in the Nino-3 region
            PR34 - Precip in the Nino-3.4 region
 
-    This function is for a DataFrame and operates on its columns. Use diag_table_ens to
+    This function is for a DataFrame and operates on its columns. Can be looped through to
     calculate separate diagnostics sets for each member of an ensemble of models.
 
     ---

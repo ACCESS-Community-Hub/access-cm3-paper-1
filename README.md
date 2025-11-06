@@ -21,7 +21,7 @@ We have 3 different levels of scripts to enable contributions from anyone, regar
 3. `non-python`.
 
 In more detail:
- - `polished-python` contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` template as a starting point and have been added to the `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` script (most preferred); 
+ - `polished-python` contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` [template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb) as a starting point and have been added to the `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` script (most preferred); 
  - `sandbox-python` contains scripts that create evaluation using python, but are not using the above workflow;
  - `non-python` contains any kind of script that creates an evaluation figure.
 
@@ -71,7 +71,7 @@ To list all branches (the `*` indicates the branch you're on) and print the name
 git branch -vvl
 ```
 
-3. Create `YOUR-NOTEBOOK.ipynb` by copying the template notebook `00_template_notebook.ipynb`:
+3. Create `YOUR-NOTEBOOK.ipynb` by copying the [template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb) notebook `00_template_notebook.ipynb`:
 ```bash
 cp 00_template_notebook.ipynb YOUR-NOTEBOOK.ipynb
 ```
@@ -131,7 +131,7 @@ The specifics of a commit can be found in the _Git hash_ (also referred to as a 
 
 ## Notebooks
 
-Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/main/notebooks/polished-python/). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/00_template_notebook.ipynb). 
+Notebooks for figures should be in the [notebooks folder](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/tree/main/notebooks/polished-python/). When starting a new notebook, please use the template [here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb). 
 
 To enable us to run all notebooks at once, *please include the following code snippet* (boilerplate) at the top of your notebook:
 ```python

@@ -22,18 +22,18 @@ For polished python commits:
  - [ ] using intake (not an open netcdf command)
  - [ ] check that comparison of CM3 vs CM2 is using the "recommended CM2" data source
 - [ ] check if there are observations being read in, are they on a project that we can access.
-- [ ] does it run, add it to mkfigs.sh and run it on a new branch as a script on ARE or submit it as a job (change user specific things)
+- [ ] Does `mkfigs.sh` run with the new notebook added? Add the name of your notebook to [this array](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/74772284193316366c4e8b4826b3bd30d2f7f706/notebooks/polished-python/mkfigs.sh#L55-L56) in `mkfigs.sh` and try to run it as a script on ARE or submit it as a job.
  - [ ]  check that [figure creation guidelines](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1?tab=readme-ov-file#guidelines-for-creating-figures) have been followed (where practical) 
 - [ ] When posting the Figure in the issue below, I have included:
  - [ ] `include path to notebook`
  - [ ] `the commit hash that created the Figure` 
- - [ ] `which CM3 simulation was analysed`
+ - [ ] `the path to the CM3 datastore used in the analysis`
 - [ ] added [authorship details](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/CITATION.cff) to `CITATION.cff`
 
 For [mega issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1):
 - [ ] create issue for each evaluation diagnostic;
 - [ ] assign yourself as the `assignees`;
 - [ ] add new issue as a sub-issue to [the mega issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1);
-- [ ] check "ticked off" when person contributes script;
+- [ ] check "ticked off" when you have uploaded the notebook;
 - [ ] create link on mega issue to relevant script (once created);
-- [ ] Before the next `CM3 Dev-Eval Working group` meeting share in the related meeting post [here](https://forum.access-hive.org.au/t/cm3-dev-eval-working-group-meeting-minutes-2025/5393?u=cbull).
+- [ ] Before the next `CM3 Dev-Eval Working group` meeting, add a link to the figure in the related meeting post [here](https://forum.access-hive.org.au/t/cm3-dev-eval-working-group-meeting-minutes-2025/5393).

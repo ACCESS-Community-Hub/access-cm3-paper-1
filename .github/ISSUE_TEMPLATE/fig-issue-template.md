@@ -1,7 +1,7 @@
 ---
 name: Issue template for adding a Figure to polished-python 
-about: 
-title: ''
+about: Use this template to share a Figure, see checklist for `polished-python` 
+title: 'Evaluation: INSERT DIAGNOSTIC NAME'
 labels: ''
 assignees: ''
 

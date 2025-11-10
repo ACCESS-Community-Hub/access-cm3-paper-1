@@ -89,7 +89,7 @@ To start contributing to the code, you have can either:
     
 10. _Add your authorship details_ to the [citation file](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/CITATION.cff). You will need to have write access to the repo - if you don't, please [request it](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).
 
-11. If `polisthed-python` (i.e. follows the template), add your notebook to the `array` variable in `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` and test that it runs, further details below.
+11. If `polished-python` (i.e., follows the template), add your notebook to the `array` variable in `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` and test that it runs. For more details, see _Notebooks_ section below.
 
 ### Guidelines for Creating Figures
  - Create an issue for the Figure you are looking to create (i.e., one issue per figure).

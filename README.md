@@ -18,11 +18,11 @@ All aspects of the project are tracked through [issues](https://github.com/ACCES
 
 The [mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) is used to track all evaluation metrics. Additionally, [evaluation metrics "ported" from OM3 evaluation are tracked seperately here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/5). 
 
-Please use sub-issues of the [mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) for creating new Figures.
+Please use sub-issues of the [mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) for creating new Figures and follow the instructions in the [issue template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=fig-issue-template.md).
 
 ### Options for scripts/notebooks
 There are 3 different levels of scripts/notebooks to enable anyone to contribute, regardless of their language or workflow preference. These reside within the `access-cm3-paper-1/notebooks`directory:
-1. `polished-python`contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` [template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb) as a starting point and have been added to the `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` script (most preferred); 
+1. `polished-python`contains scripts that have used the `access-cm3-paper-1/notebook/polished-python/00_template_notebook.ipynb` [template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb) as a starting point and have followed the instruction list in the [issue template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=fig-issue-template.md), which includes adding the new script to `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh`; 
 2. `sandbox-python`contains scripts that create evaluation using python, but are not using the above workflow;
 3. `non-python` contains any kind of script that creates an evaluation figure. 
 

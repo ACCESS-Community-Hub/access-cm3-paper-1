@@ -24,7 +24,7 @@ For polished python commits:
 - [ ] check if there are observations being read in, are they on a project that we can access (current list of projects is `gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65`).
 - [ ] Does `mkfigs.sh` run with the new notebook added? Add the name of your notebook to [this array](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/74772284193316366c4e8b4826b3bd30d2f7f706/notebooks/polished-python/mkfigs.sh#L55-L56) in `mkfigs.sh` and try to run it as a script on ARE or submit it as a job.
  - [ ]  check that [figure creation guidelines](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1?tab=readme-ov-file#guidelines-for-creating-figures) have been followed (where practical) 
-- [ ] When posting the Figure in the issue below, I have included:
+- [ ] When posting the Figure in the issue below, you have included:
  - [ ] `include path to notebook`
  - [ ] `the commit hash that created the Figure` 
  - [ ] `the path to the CM3 datastore used in the analysis`

@@ -18,16 +18,16 @@ There's a lot of items but many of them take a few seconds to do.
 For polished python commits:
 
 - [ ] When creating the notebook the template was [used](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb). Specifically:
- - [ ] using ESM datastore ("cell 3? from the template" -- give it a name?)
- - [ ] using intake (not an open netcdf command)
- - [ ] check that comparison of CM3 vs CM2 is using the "recommended CM2" data source ([see template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb) and [guidance](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1?tab=readme-ov-file#experiment-descriptions))
+   - [ ] using ESM datastore ("cell 3? from the template" -- give it a name?)
+   - [ ] using intake (not an open netcdf command)
+   - [ ] check that comparison of CM3 vs CM2 is using the "recommended CM2" data source ([see template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/notebooks/polished-python/00_template_notebook.ipynb) and [guidance](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1?tab=readme-ov-file#experiment-descriptions))
 - [ ] check if there are observations being read in, are they on a project that we can access (current list of projects is `gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65`).
-- [ ] Does `mkfigs.sh` run with the new notebook added? Add the name of your notebook to [this array](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/74772284193316366c4e8b4826b3bd30d2f7f706/notebooks/polished-python/mkfigs.sh#L55-L56) in `mkfigs.sh` and try to run it as a script on ARE or submit it as a job.
+- [ ] Does `mkfigs.sh` run with the new notebook added? Add the name of your notebook to [this array](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/74772284193316366c4e8b4826b3bd30d2f7f706/notebooks/polished-python/mkfigs.sh#L55-L56) in `mkfigs.sh` and try to run it as a script on ARE or submit it as a job (see `## workflow` [section for details](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/74772284193316366c4e8b4826b3bd30d2f7f706/notebooks/polished-python/mkfigs.sh#L20C1-L20C12)).
  - [ ]  check that [figure creation guidelines](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1?tab=readme-ov-file#guidelines-for-creating-figures) have been followed (where practical) 
 - [ ] When posting the Figure in the issue below, you have included:
- - [ ] `include path to notebook`
- - [ ] `the commit hash that created the Figure` 
- - [ ] `the path to the CM3 datastore used in the analysis`
+   - [ ] `include path to notebook`
+   - [ ] `the commit hash that created the Figure` 
+   - [ ] `the path to the CM3 datastore used in the analysis`
 - [ ] added [authorship details](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/CITATION.cff) to `CITATION.cff`
 
 For [mega issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1):

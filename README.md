@@ -16,9 +16,9 @@ All community members (and ACCESS-NRI staff) can get write access to this reposi
 
 All aspects of the project are tracked through [issues](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues), where each small task is captured in a separate issue, i.e., a single issue for each Figure. Issues will develop to include discussion of analysis methods and figures associated with each task. 
 
-The [mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) is used to track all evaluation metrics, including [evaluation metrics "ported" from OM3 evaluation](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/5). 
+The [mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) is used to track all evaluation metrics. Additionally, [evaluation metrics "ported" from OM3 evaluation are tracked seperately here](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/5). 
 
-Please use sub-issues for creating new Figures.
+Please use sub-issues of the [mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) for creating new Figures.
 
 ### Options for scripts/notebooks
 There are 3 different levels of scripts/notebooks to enable anyone to contribute, regardless of their language or workflow preference. These reside within the `access-cm3-paper-1/notebooks`directory:
@@ -26,7 +26,7 @@ There are 3 different levels of scripts/notebooks to enable anyone to contribute
 2. `sandbox-python`contains scripts that create evaluation using python, but are not using the above workflow;
 3. `non-python` contains any kind of script that creates an evaluation figure. 
 
-### How to copy the `access-cm3-paper-1` repo and create a notebook (on a branch)
+### How to copy the `access-cm3-paper-1` repo and create a notebook 
 To start contributing to the code, you have can either:
  * Push your code changes to the `main` branch directly (i.e., follow the steps below, _omitting_ the branch steps), or
  * Create a new branch directly in this repository, make your changes there, and then open a pull request from your branch into `main` to request review (i.e., carry out _all_ steps below.
@@ -89,13 +89,14 @@ To start contributing to the code, you have can either:
     
 10. _Add your authorship details_ to the [citation file](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/blob/main/CITATION.cff). You will need to have write access to the repo - if you don't, please [request it](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md).
 
+11. If `polisthed-python` (i.e. follows the template), add your notebook to the `array` variable in `access-cm3-paper-1/notebooks/polished-python/mkfigs.sh` and test that it runs, further details below.
 
 ### Guidelines for Creating Figures
  - Create an issue for the Figure you are looking to create (i.e., one issue per figure).
  - Add it as a sub-issue to [the mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1).
- - When posting in the issue, **please include path to notebook and the commit hash that created the Figure**. The commit hash also gives run information, which you can also include in the issue.
- - If possible, also include a CM2 comparison.
- - Average over the last 10 years is also desirable.
+ - When posting in the issue, **please include path to notebook and the commit hash that created the Figure**. The commit hash also gives run information, which you can also include in the issue. If possible:
+ - include a CM2 comparison;
+ - Average over the last 10 years;
  - Once you've created your Figure and uploaded your notebook, please tick off your assigned task in the [mega-issue list](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1).
  - If it's not currently possible to complete the metric due to missing diagnostics, please note that in the [Missing diagnostics to do analysis](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/2) issue so we can provide that output in future runs.
 

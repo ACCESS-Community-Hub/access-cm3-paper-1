@@ -1,14 +1,11 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65
-#PBS -M chris.bull@anu.edu.au
+#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/zv30+gdata/p73
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=8
 #PBS -l mem=24gb
 #PBS -l walltime=2:00:00
-#PBS -o /g/data/tm70/cyb561/logs
-#PBS -e /g/data/tm70/cyb561/logs
 
 # bash script that runs all the notebooks
 #set -x
@@ -31,8 +28,8 @@ module list
 
 
 # SET THESE START
-WFOLDER=/g/data/tm70/cyb561/access-cm3-paper-1/
-ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/experiment_datastore.json
+WFOLDER=/g/data/$PROJECT/$USER/Notebooks/access-cm3-paper-1/
+ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json
 
 # SET THESE END
 
@@ -40,7 +37,7 @@ ESMDIR=/g/data/ol01/access-om3-output/access-om3-025/MC_25km_jra_ryf-1.0-beta/ex
 OFOL=${WFOLDER}notebooks/mkfigs_output4/
 
 cd ${WFOLDER}
-cd notebooks
+cd notebooks/polished-python
 mkdir -p ${OFOL}
 
 echo ""

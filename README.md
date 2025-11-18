@@ -120,7 +120,7 @@ To start contributing to the code, you have can either:
    %matplotlib inline
    rcParams['figure.dpi']= dpi
 
-   plotfolder=f"/g/data/{os.environ['PROJECT']}/{os.environ['USER']}/access-om3-paper-figs/"
+   plotfolder=f"/g/data/{os.environ['PROJECT']}/{os.environ['USER']}/access-cm3-paper-figs/"
    os.makedirs(plotfolder, exist_ok=True)
 
     # a similar cell under this means it's being run in batch

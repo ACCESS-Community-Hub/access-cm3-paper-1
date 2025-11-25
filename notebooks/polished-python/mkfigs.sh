@@ -50,7 +50,7 @@ echo ""
 echo ""
 
 #please add your script name to this `array` variable, spaces are between script names, script name does not include `*.ipynb` extension
-array=( 00_template_notebook global-time-series salinity )
+array=( 00_template_notebook global-time-series salinity water-conservation)
 
 for FNAME in "${array[@]}"
 do

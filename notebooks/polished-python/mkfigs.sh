@@ -49,8 +49,8 @@ echo "Output will be in: "${OFOL}
 echo ""
 echo ""
 
-#please add your script name to this `array` variable, spaces are between script names, script name does not include `*.ipynb` extension
-array=( 00_template_notebook global-time-series salinity )
+#make the figures
+array=( ENSO_IOD_properties mean_state_eval )
 
 for FNAME in "${array[@]}"
 do

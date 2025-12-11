@@ -43,6 +43,11 @@ authors:
     email: Deepashree.Dutta@anu.edu.au
     affiliation: Research School of Earth Sciences, Australian National University, Canberra, Australia
     orcid: https://orcid.org/0009-0006-2090-4789
+  - given-names: Jemma
+    family-names: Jeffree
+    email: Jemma.Jeffree@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University, Canberra, Australia
+    orcid: https://orcid.org/0000-0001-7190-7329
 
 repository-code: 'https://github.com/ACCESS-Community-Hub/access-cm3-paper-1'
 url: 'https://github.com/ACCESS-Community-Hub/access-cm3-paper-1'
@@ -52,7 +57,7 @@ license: CC-BY-4.0
 version: 
 date-released: 
 keywords:
-  - access-om3
+  - access-cm3
   - climate
   - model
   - "ocean - sea ice"

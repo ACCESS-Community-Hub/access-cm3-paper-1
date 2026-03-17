@@ -6,10 +6,7 @@ To get started, see the _How it works_ section below.
 
 ## Experiment descriptions
 
-Currently we welcome feedback on: 
- * `/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-20-01-2026-om3-update/cm3-datastore/cm3-datastore.json`: CM3 with 25km ocean. This run features updated [OM3](https://github.com/ACCESS-NRI/ACCESS-OM3/tree/access-cm3-2025.12.0) components, pseudo-iceberg fluxes, and a more accurate wind stress remapping.
- * `/g/data/zv30/n on-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json`: CM3 25km ocean which is a present day control with constant forcing (year numbers are essentially meaningless). This run is not made from a released configuration/build so there is no guarantees of it being available or re-producible long-term. Ocean initial conditions are taken from a "cold start" in ACCESS-OM3 (e.g., WOA2023 January).
- * `/g/data/lg87/wgh581/cz861/`: CM2 25km present day control run for comparison. Again year numbers are meaningless but in this case start from "1". We recommend comparing the first N years of this run to ACCESS-CM3 runs to assess the spin-up.
+Currently we welcome any feedback on the CM3 experiments listed in [this table](https://access-cm3-configs--11.org.readthedocs.build/Experiments/).
 
 ## How it works
 

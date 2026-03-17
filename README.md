@@ -6,7 +6,7 @@ To get started, see the _How it works_ section below.
 
 ## Experiment descriptions
 
-Currently we welcome any feedback on the CM3 experiments listed in [this table](https://access-cm3-configs--11.org.readthedocs.build/Experiments/).
+Currently we welcome any feedback on the CM3 experiments listed in [this table](https://access-cm3-configs.readthedocs.io/Experiments/).
 
 ## How it works
 

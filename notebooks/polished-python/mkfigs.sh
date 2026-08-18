@@ -20,7 +20,7 @@ module list
 #1. add path to WFOLDER
 #1. set path to ESMDIR (ESM-datastore for experiment)
 #1. ensure the experiment folder is availble in storage header above
-#1. `qsub mkfigs.sh`
+#1. `qsub -v RUN="cm3-run-27-07-2026-PD-control",PROJECT="$PROJECT" mkfigs.sh`
 
 ## Optional
 #1. change email and log settings in above header
@@ -29,12 +29,12 @@ module list
 
 # SET THESE START
 WFOLDER=/g/data/$PROJECT/$USER/Notebooks/access-cm3-paper-1/
-ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json
+ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/${RUN}/cm3-datastore/cm3-datastore.json
 
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=${WFOLDER}notebooks/mkfigs_output4/
+OFOL=${WFOLDER}notebooks/mkfigs_output4/${RUN}/
 
 cd ${WFOLDER}
 cd notebooks/polished-python

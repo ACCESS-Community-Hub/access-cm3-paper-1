@@ -3,9 +3,9 @@
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
-#PBS -l ncpus=8
-#PBS -l mem=24gb
-#PBS -l walltime=2:00:00
+#PBS -l ncpus=16
+#PBS -l mem=64gb
+#PBS -l walltime=4:00:00
 
 # bash script that runs all the notebooks
 #set -x
@@ -50,7 +50,17 @@ echo ""
 echo ""
 
 #please add your script name to this `array` variable, spaces are between script names, script name does not include `*.ipynb` extension
-array=( 00_template_notebook global-time-series salinity water-conservation flux-conservation )
+array=( 
+    00_template_notebook 
+    global-time-series 
+    salinity 
+    water-conservation 
+    flux-conservation 
+    autocorrelation_and_amplitude
+    Bottom_age_tracer
+    SST_trend_global
+    TOA_CRE
+)
 
 for FNAME in "${array[@]}"
 do

@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l storage=gdata/tm70+gdata/ik11+gdata/ol01+gdata/xp65+gdata/zv30+gdata/p73
+#PBS -l storage=gdata/zv30+gdata/p73+gdata/tm70+gdata/ki32+gdata/nf33+gdata/hr22+gdata/hh5+gdata/access+gdata/xp65+gdata/vk83+gdata/ol01+gdata/qv56+gdata/rt52+gdata/fs38+gdata/lg87+gdata/eg3+gdata/ct11+gdata/ik11+gdata/av17
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
@@ -60,6 +60,7 @@ array=(
     Bottom_age_tracer
     SST_trend_global
     TOA_CRE
+    Transects
 )
 
 for FNAME in "${array[@]}"

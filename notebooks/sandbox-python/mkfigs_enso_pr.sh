@@ -14,7 +14,7 @@
 #set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-25.09 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
+module load conda/analysis3 #contains papermill 2.6.0 - https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/310
 module list
 
 ## workflow
@@ -32,15 +32,15 @@ module list
 
 # SET THESE START
 #WFOLDER=/g/data/eg3/cxc548/access-cm3-paper-1/
-WFOLDER=/home/548/cxc548/nesp/eval_metrics/access-cm3-paper-1/notebooks/sandbox-python/ENSO_recipes/
-ESMDIR=/scratch/p66/yz9299/OCT/pr_Amon_ACCESS-ESM1-5_piControl_r1i1p1f1_gn_144401-214412.nc
-STARTYR=1944
-ENDYR=2144
-LABEL='OctB'
+WFOLDER=/home/548/cxc548/nesp/eval_metrics/access_cm3/access-cm3-paper-1/notebooks/sandbox-python/ENSO_recipes/
+ESMDIR=/g/data/eg3/cxc548/nesp/ACCESS_testing/cm3_PD-control_1981-2030.nc
+STARTYR=1981
+ENDYR=2030
+LABEL='PD_control'
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=/g/data/eg3/cxc548/nesp/ACCESS_testing/notebooks/mkfigs_esm16/
+OFOL=/g/data/eg3/cxc548/nesp/ACCESS_testing/notebooks/mkfigs_cm3/
 
 cd ${WFOLDER}
 #cd notebooks
@@ -61,5 +61,6 @@ array=( 01-Double_ITCZ_bias 02-eq_PR_bias 05-double_ITCZ_sea_cycle 06-eq_PR_sea_
 for FNAME in "${array[@]}"
 do
     echo "Running notebook: "${FNAME}".ipynb"
+    cd $WFOLDER
     python3 /home/548/cxc548/nesp/eval_metrics/ACCESS-eval/run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} -p startyear ${STARTYR} -p endyear ${ENDYR} -p mylabel ${LABEL}; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
 done

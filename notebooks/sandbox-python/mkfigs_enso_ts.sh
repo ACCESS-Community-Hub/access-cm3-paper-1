@@ -32,15 +32,15 @@ module list
 
 # SET THESE START
 #WFOLDER=/g/data/eg3/cxc548/access-cm3-paper-1/
-WFOLDER=/home/548/cxc548/nesp/eval_metrics/access-cm3-paper-1/notebooks/sandbox-python/ENSO_recipes/
-ESMDIR=/scratch/p66/yz9299/OCT/ts_Amon_ACCESS-ESM1-5_piControl_r1i1p1f1_gn_144401-214412.nc
-STARTYR=1944
-ENDYR=2144
-LABEL='OctB'
+WFOLDER=/home/548/cxc548/nesp/eval_metrics/access_cm3/access-cm3-paper-1/notebooks/sandbox-python/ENSO_recipes/
+ESMDIR=/g/data/eg3/cxc548/nesp/ACCESS_testing/cm3_PD-control_1981-2030.nc
+STARTYR=1981
+ENDYR=2030
+LABEL='PD_control'
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=/g/data/eg3/cxc548/nesp/ACCESS_testing/notebooks/mkfigs_esm16/
+OFOL=/g/data/eg3/cxc548/nesp/ACCESS_testing/notebooks/mkfigs_cm3/
 
 cd ${WFOLDER}
 #cd notebooks

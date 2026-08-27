@@ -7,8 +7,8 @@
 #PBS -l ncpus=8
 #PBS -l mem=24gb
 #PBS -l walltime=6:00:00
-#PBS -o /g/data/eg3/cxc548/esm16logs_tauu
-#PBS -e /g/data/eg3/cxc548/esm16logs_tauu
+#PBS -o /g/data/eg3/cxc548/esm16logs_pr
+#PBS -e /g/data/eg3/cxc548/esm16logs_pr
 
 # bash script that runs all the notebooks
 #set -x
@@ -32,10 +32,10 @@ module list
 
 # SET THESE START
 #WFOLDER=/g/data/eg3/cxc548/access-cm3-paper-1/
-WFOLDER=/home/548/cxc548/nesp/eval_metrics/access-cm3-paper-1/notebookx/sandbox-python/ENSO_recipes/
-ESMDIR=/scratch/p66/yz9299/OCT_B/tauu_Amon_ACCESS-ESM1-5_piControl_r1i1p1f1_gn_144401-184312.nc
-STARTYR=1444
-ENDYR=1644
+WFOLDER=/home/548/cxc548/nesp/eval_metrics/access-cm3-paper-1/notebooks/sandbox-python/ENSO_recipes/
+ESMDIR=/scratch/p66/yz9299/OCT/pr_Amon_ACCESS-ESM1-5_piControl_r1i1p1f1_gn_144401-214412.nc
+STARTYR=1944
+ENDYR=2144
 LABEL='OctB'
 # SET THESE END
 
@@ -56,7 +56,7 @@ echo ""
 echo ""
 
 #make the figures
-array=( 04-eq_Taux_bias 08-eq_Taux_sea_cycle )
+array=( 01-Double_ITCZ_bias 02-eq_PR_bias 05-double_ITCZ_sea_cycle 06-eq_PR_sea_cycle )
 
 for FNAME in "${array[@]}"
 do

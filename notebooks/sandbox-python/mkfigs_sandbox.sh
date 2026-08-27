@@ -1,14 +1,14 @@
 #!/bin/bash
-#PBS -l storage=gdata/eg3+gdata/ct11+gdata/fs38+gdata/xp65+gdata/p66+scratch/p66
+#PBS -l storage=gdata/eg3+gdata/ct11+gdata/fs38+gdata/xp65+gdata/zv30
 #PBS -M christine.chung@bom.gov.au
 #PBS -m ae
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=8
 #PBS -l mem=24gb
-#PBS -l walltime=6:00:00
-#PBS -o /g/data/eg3/cxc548/esm16logs_tauu
-#PBS -e /g/data/eg3/cxc548/esm16logs_tauu
+#PBS -l walltime=2:00:00
+#PBS -o /g/data/eg3/cxc548/logs
+#PBS -e /g/data/eg3/cxc548/logs
 
 # bash script that runs all the notebooks
 #set -x
@@ -31,16 +31,13 @@ module list
 
 
 # SET THESE START
-#WFOLDER=/g/data/eg3/cxc548/access-cm3-paper-1/
-WFOLDER=/home/548/cxc548/nesp/eval_metrics/access-cm3-paper-1/notebookx/sandbox-python/ENSO_recipes/
-ESMDIR=/scratch/p66/yz9299/OCT_B/tauu_Amon_ACCESS-ESM1-5_piControl_r1i1p1f1_gn_144401-184312.nc
-STARTYR=1444
-ENDYR=1644
-LABEL='OctB'
+WFOLDER=/home/548/cxc548/nesp/eval_metrics/access_cm3/access-cm3-paper-1/notebooks/sandbox-python/
+ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-11-08-2025-25km-beta-om3-new-um-params/cm3-demo-datastore/cm3-demo-datastore.json
+
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=/g/data/eg3/cxc548/nesp/ACCESS_testing/notebooks/mkfigs_esm16/
+OFOL=/g/data/eg3/cxc548/access-cm3-paper-1/notebooks/mkfigs_cm3/
 
 cd ${WFOLDER}
 #cd notebooks
@@ -56,10 +53,10 @@ echo ""
 echo ""
 
 #make the figures
-array=( 04-eq_Taux_bias 08-eq_Taux_sea_cycle )
+array=( mean_state_eval decadal_eval eofs ENSO_IOD_properties )
 
 for FNAME in "${array[@]}"
 do
     echo "Running notebook: "${FNAME}".ipynb"
-    python3 /home/548/cxc548/nesp/eval_metrics/ACCESS-eval/run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} -p startyear ${STARTYR} -p endyear ${ENDYR} -p mylabel ${LABEL}; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
+    python3 run_nb.py ${FNAME}.ipynb; papermill ${FNAME}.ipynb ${OFOL}${FNAME}_rendered.ipynb -p esm_file ${ESMDIR} -p plotfolder ${OFOL} ; jupyter nbconvert --to markdown ${OFOL}${FNAME}_rendered.ipynb
 done

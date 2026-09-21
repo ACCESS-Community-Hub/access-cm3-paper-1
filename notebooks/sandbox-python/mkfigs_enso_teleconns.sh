@@ -5,7 +5,7 @@
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=8
-#PBS -l mem=24gb
+#PBS -l mem=256gb
 #PBS -l walltime=6:00:00
 #PBS -o /g/data/eg3/cxc548/esm16logs_teleconns
 #PBS -e /g/data/eg3/cxc548/esm16logs_teleconns
@@ -32,16 +32,16 @@ module list
 
 # SET THESE START
 #WFOLDER=/g/data/eg3/cxc548/access-cm3-paper-1/
-WFOLDER=/home/548/cxc548/nesp/eval_metrics/access-cm3-paper-1/notebooks/sandbox-python/ENSO_recipes/
-ESMDIR_PR=/scratch/p66/yz9299/OCT/pr_Amon_ACCESS-ESM1-5_piControl_r1i1p1f1_gn_144401-214412.nc
-ESMDIR_TS=/scratch/p66/yz9299/OCT/ts_Amon_ACCESS-ESM1-5_piControl_r1i1p1f1_gn_144401-214412.nc
-STARTYR=1944
-ENDYR=2144
-LABEL='OctB'
+WFOLDER=/home/548/cxc548/nesp/eval_metrics/access_cm3/access-cm3-paper-1/notebooks/sandbox-python/ENSO_recipes/
+ESMDIR_PR=/g/data/eg3/cxc548/nesp/ACCESS_testing/cm3_PD-control_1981-2030.nc
+ESMDIR_TS=/g/data/eg3/cxc548/nesp/ACCESS_testing/cm3_PD-control_1981-2030.nc
+STARTYR=1981
+ENDYR=2030
+LABEL='PD_control'
 # SET THESE END
 
 #best not mess with the path here...
-OFOL=/g/data/eg3/cxc548/nesp/ACCESS_testing/notebooks/mkfigs_esm16/
+OFOL=/g/data/eg3/cxc548/nesp/ACCESS_testing/notebooks/mkfigs_cm3/
 
 cd ${WFOLDER}
 #cd notebooks

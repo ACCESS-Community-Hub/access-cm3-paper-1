@@ -181,9 +181,20 @@ def curvefit (h, nord=3):
    elif np.ndim(h) == 2:
        return h.apply(lambda x: curvefit_sr (x, nord=nord))
 
-def extrap (df0, nord=3):
+def extrap (df0, nord=0):
     """Extrapolation (and interpolation) of a dataframe/series with missing boundary values
     by a polynomial/curve fit. Note, nord=0 returns a linearly interpolated array.
+
+    Warning: For noisy data, which is usually the case, either use nord=0 (linear interpolation 
+    between neighbouring data points) or nord >= 8, so that the polynomial fit is a good fit to
+    the data. Even for nord >= 8, the extrapolated values can be outliers (although interpolated 
+    values are reasonable; see the examples below). To be safe, use nord=0 (default) unless there
+    is a strong case for using higher orders.
+
+    A better alternative is to use (for monthly data with dt > 1 month):
+        df1 = df0.resample('MS').interpolate(method='quadratic')
+    For this method, df0 should contain only the non-missing values with corresponding
+    indices (pd.DatetimeIndex).
 
     Example usage:
 

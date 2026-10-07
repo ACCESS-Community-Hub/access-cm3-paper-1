@@ -10,7 +10,7 @@ GitHub issues (see links in Figure captions).
 `ACCESS-Community-Hub/access-cm3-paper-1/` **authors (alphabetically):**
 Boschat, Ghyslaine; Boucher, Romain; Bull, Christopher Yit Sen; Chun,
 Felicity; Chung, Christine T. Y.; Dutta, Deepashree; Gillett, Zoe;
-Jeffree, Jemma; Ong, Ellie Qing Yee.
+Jeffree, Jemma; Kiss, Andrew E.; Ong, Ellie Qing Yee; Rashid, Harun A.
 
 **Tracking issues:**
 

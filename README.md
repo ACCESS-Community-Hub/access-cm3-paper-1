@@ -4,6 +4,41 @@ A collaborative project to create and discuss figures for description and assess
 
 To get started, see the _How it works_ section below.
 
+## ACCESS-OM3 Submodule
+
+This repository includes the [access-om3-paper-1](https://github.com/ACCESS-Community-Hub/access-om3-paper-1) evaluation repository as a Git submodule. This allows scripts and analysis developed for ACCESS-OM3 to be shared and reused in ACCESS-CM3 evaluation.
+
+### What is a Git Submodule?
+
+A Git submodule allows you to keep a Git repository as a subdirectory of another Git repository. In this case, the OM3 evaluation repository is embedded within the CM3 repository, enabling shared analysis tools while maintaining separate development workflows for each project.
+
+### Working with the Submodule
+
+**Initial clone (first time setup):**
+
+If you're cloning this repository for the first time and want to include the OM3 submodule, use:
+```bash
+git clone --recurse-submodules https://github.com/ACCESS-Community-Hub/access-cm3-paper-1.git
+```
+
+If you've already cloned the repository without the submodule, initialize it with:
+```bash
+git submodule update --init --recursive
+```
+
+**Updating the submodule:**
+
+The submodule points to a specific commit in the OM3 repository. To update it to the latest version:
+```bash
+cd access-om3-paper-1
+git pull origin main
+cd ..
+git add access-om3-paper-1
+git commit -m "Update OM3 submodule to latest version"
+```
+
+**Note:** Changes made inside the `access-om3-paper-1/` directory should typically be committed to the OM3 repository separately. The CM3 repository only tracks which commit of OM3 it references.
+
 ## Experiment descriptions
 
 Currently we welcome any feedback on the CM3 experiments listed in [this table](https://access-cm3-configs.readthedocs.io/Experiments/).

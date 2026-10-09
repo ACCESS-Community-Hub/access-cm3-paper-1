@@ -12,11 +12,14 @@ Boschat, Ghyslaine; Boucher, Romain; Bull, Christopher Yit Sen; Chun,
 Felicity; Chung, Christine T. Y.; Dutta, Deepashree; Gillett, Zoe;
 Jeffree, Jemma; Kiss, Andrew E.; Ong, Ellie Qing Yee; Rashid, Harun A.
 
+<!-- preamble-extra -->
+<!-- Kept by mkfigs-pushit when it regenerates the heading/authors above. -->
 **Tracking issues:**
 
 - [#1](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) — Evaluation metrics for CM3 (mega-issue, tracks all CM3-native notebooks)
 - [#5](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/5) — Recreate OM3 evaluation figures for CM3 (tracks a future "Ocean evaluation (OM3)" section — not part of this site yet)
 - [#55](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/55) — Moving the OM3 evaluation repo in as a submodule (in progress, see [#56](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/pull/56) — separate from this site)
+<!-- /preamble-extra -->
 
 <!-- experiments -->
 

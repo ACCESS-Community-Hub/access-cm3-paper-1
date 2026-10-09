@@ -4,7 +4,8 @@
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=16
-#PBS -l mem=64gb
+# mem: the first run used 63.99 of 64gb. Gadi charges max(ncpus, mem/4gb) per hour, so 128gb costs ~2x.
+#PBS -l mem=128gb
 #PBS -l walltime=4:00:00
 
 # Runs all the notebooks via the shared access-model-mkfigs engine (see

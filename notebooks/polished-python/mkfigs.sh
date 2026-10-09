@@ -4,7 +4,8 @@
 #PBS -q normal
 #PBS -W umask=0022
 #PBS -l ncpus=16
-#PBS -l mem=64gb
+# mem: the first run used 63.99 of 64gb. Gadi charges max(ncpus, mem/4gb) per hour, so 128gb costs ~2x.
+#PBS -l mem=128gb
 #PBS -l walltime=4:00:00
 
 # Runs all the notebooks via the shared access-model-mkfigs engine (see
@@ -19,9 +20,17 @@
 #1. Edit this file: ENAME / ESMDIR below, and the notebook `array` if needed
 #1. Ensure the experiment storage path is in the #PBS -l storage header above
 #1. `qsub -v PROJECT="$PROJECT" mkfigs.sh`
+#1. (login node, after the job) set up the environment for the follow-up commands -- see below
 #1. `python3 -m mkfigs.pushit`
 #1. Log in to Figshare and publish the article
 #1. `python3 -m mkfigs.pushit --check-figshare-upload`   (follow the git commands it prints)
+#
+## To run follow-up commands (pushit) from a login node
+## (this script only sets PYTHONPATH inside the batch job, so do it by hand here):
+#   module purge; module use /g/data/xp65/public/modules; module load conda/analysis3-26.08
+#   export PYTHONPATH="<WFOLDER>/external/access-model-mkfigs/src:${PYTHONPATH}"
+#   cd <WFOLDER>/notebooks/polished-python
+#   python3 -m mkfigs.pushit  [--dry-run] [--check-figshare-upload]
 #
 ## Optional
 #1. change email and log settings in above header
@@ -30,13 +39,19 @@
 set -x
 module purge
 module use /g/data/xp65/public/modules
-module load conda/analysis3-25.09 # contains papermill 2.6.0
+module load conda/analysis3-26.08 # same as access-om3-paper-1; has papermill and nci_ipynb (needed by mkfigs-pushit)
 module list
 
 # ---------------------------------------------------------------------------
 # SET THESE
 # ---------------------------------------------------------------------------
-WFOLDER=/g/data/$PROJECT/$USER/Notebooks/access-cm3-paper-1/
+# Repo root, derived from where this script lives (notebooks/polished-python/)
+# so it works from any clone location -- same approach as access-om3-paper-1.
+if [ -n "$PBS_O_WORKDIR" ]; then
+    WFOLDER="$(dirname "$(dirname "$PBS_O_WORKDIR")")/"
+else
+    WFOLDER="$(dirname "$(readlink -f "$0")")/../../"
+fi
 ESMDIR=/g/data/zv30/non-cmip/ACCESS-CM3/cm3-run-27-07-2026-PD-control/cm3-datastore/cm3-datastore.json
 ENAME=cm3-run-27-07-2026-PD-control
 

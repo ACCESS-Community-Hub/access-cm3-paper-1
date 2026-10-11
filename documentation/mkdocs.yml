@@ -1,0 +1,75 @@
+# This file uses the following environment variables set within the build workflow:
+# - SITE_URL: the URL of the site (falls back to the default URL)
+site_name: access-cm3-paper-1-figures
+
+site_url: !ENV [SITE_URL, "https://access-cm3-paper-1.readthedocs.io/"]
+
+repo_url: https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/
+repo_name: access-cm3-paper-1
+edit_uri: blob/main/documentation/docs/pages/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  icon:
+    edit: material/pencil
+    view: material/eye
+
+copyright: Copyright &copy; 2026 ACCESS-NRI
+
+# Deliberately basic for now, matched to access-om3-paper-1's core plugin
+# set only -- add git-revision-date-localized/macros/bibtex/custom theme
+# overrides/branding assets later if/when this site wants to fully match
+# OM3's look, and see mkfigs.aggregate (separate, not-yet-merged PR to
+# access-model-mkfigs) for pulling in OM3's own figures per #5/#55/#56.
+plugins:
+  - search
+  - mkdocs-jupyter:
+      execute: false
+      include_source: true
+      ignore_h1_titles: true
+      include:
+        - "**/*.ipynb"
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+  - toc:
+      title: On this page
+
+# Navigation
+# "pages/experiments/*" entries are added automatically by mkfigs-pushit
+# once a CM3 experiment has been run and pushed -- nothing has been
+# pushed through this site yet, so there's only Home for now.
+nav:
+  - Home: pages/index.md
+
+extra:
+  generator: false
+
+watch:
+  - mkdocs.yml
+
+hooks:
+  - hooks/hide_pages_url_segment.py

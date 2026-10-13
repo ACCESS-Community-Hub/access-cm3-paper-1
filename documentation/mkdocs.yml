@@ -10,14 +10,21 @@ edit_uri: blob/main/documentation/docs/pages/
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
+    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
+      scheme: custom-light
+      primary: none
+      accent: none
       toggle:
         icon: material/theme-light-dark
         name: Switch to dark mode
+    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      primary: none
+      accent: none
+      scheme: custom-dark
       toggle:
         icon: material/theme-light-dark
         name: Switch to light mode
@@ -27,19 +34,19 @@ theme:
     - navigation.indexes
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
     - toc.follow
+  logo: assets/ACCESS_icon_HIVE.png
+  favicon: assets/ACCESS_icon_HIVE.png
   icon:
     edit: material/pencil
     view: material/eye
 
 copyright: Copyright &copy; 2026 ACCESS-NRI
 
-# Deliberately basic for now, matched to access-om3-paper-1's core plugin
-# set only -- add git-revision-date-localized/macros/bibtex/custom theme
-# overrides/branding assets later if/when this site wants to fully match
-# OM3's look, and see mkfigs.aggregate (separate, not-yet-merged PR to
-# access-model-mkfigs) for pulling in OM3's own figures per #5/#55/#56.
+# Theme, branding and CSS match access-om3-paper-1. Its non-visual plugins
+# (git-revision-date-localized, macros, bibtex) are not needed here yet.
 plugins:
   - search
   - mkdocs-jupyter:
@@ -67,9 +74,25 @@ nav:
 
 extra:
   generator: false
+  social:
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/access-nri.bsky.social
+      name: ACCESS-NRI on Bluesky
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/access-nri
+      name: ACCESS-NRI on Linkedin
+
+extra_css:
+  - "https://fonts.googleapis.com/icon?family=Material+Icons"
+  - fontello/css/fontello-codes.css
+  - fontello/css/fontello-ie7-codes.css
+  - fontello/css/fontello-ie7.css
+  - fontello/css/fontello.css
+  - css/custom.css
 
 watch:
   - mkdocs.yml
+  - overrides/
 
 hooks:
   - hooks/hide_pages_url_segment.py

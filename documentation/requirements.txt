@@ -1,0 +1,3 @@
+mkdocs-material==9.6.11
+mkdocs-jupyter>=0.24.0
+PyYAML>=6.0

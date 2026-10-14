@@ -1,0 +1,98 @@
+# This file uses the following environment variables set within the build workflow:
+# - SITE_URL: the URL of the site (falls back to the default URL)
+site_name: access-cm3-paper-1-figures
+
+site_url: !ENV [SITE_URL, "https://access-cm3-paper-1.readthedocs.io/"]
+
+repo_url: https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/
+repo_name: access-cm3-paper-1
+edit_uri: blob/main/documentation/docs/pages/
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: custom-light
+      primary: none
+      accent: none
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: none
+      accent: none
+      scheme: custom-dark
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - toc.follow
+  logo: assets/ACCESS_icon_HIVE.png
+  favicon: assets/ACCESS_icon_HIVE.png
+  icon:
+    edit: material/pencil
+    view: material/eye
+
+copyright: Copyright &copy; 2026 ACCESS-NRI
+
+# Theme, branding and CSS match access-om3-paper-1. Its non-visual plugins
+# (git-revision-date-localized, macros, bibtex) are not needed here yet.
+plugins:
+  - search
+  - mkdocs-jupyter:
+      execute: false
+      include_source: true
+      ignore_h1_titles: true
+      include:
+        - "**/*.ipynb"
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+  - toc:
+      title: On this page
+
+# Navigation
+# "pages/experiments/*" entries are added automatically by mkfigs-pushit
+# once a CM3 experiment has been run and pushed -- nothing has been
+# pushed through this site yet, so there's only Home for now.
+nav:
+  - Home: pages/index.md
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/access-nri.bsky.social
+      name: ACCESS-NRI on Bluesky
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/access-nri
+      name: ACCESS-NRI on Linkedin
+
+extra_css:
+  - "https://fonts.googleapis.com/icon?family=Material+Icons"
+  - fontello/css/fontello-codes.css
+  - fontello/css/fontello-ie7-codes.css
+  - fontello/css/fontello-ie7.css
+  - fontello/css/fontello.css
+  - css/custom.css
+
+watch:
+  - mkdocs.yml
+  - overrides/
+
+hooks:
+  - hooks/hide_pages_url_segment.py

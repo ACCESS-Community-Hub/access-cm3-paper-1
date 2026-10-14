@@ -8,6 +8,16 @@ not listed will show an empty cell.
 
 ISSUES maps notebook stem (filename without .ipynb) to a Markdown string.
 
+CATEGORIES (optional) groups the landing-page run-summary table into one
+sub-headed table per category (the left-hand nav stays a flat, alphabetical
+list of notebooks). Each entry lists issue numbers
+(int, matched against the links in ISSUES) and/or notebook stems (str); each
+notebook appears exactly once, and anything unmatched goes last under
+"Miscellaneous". CM3 has no per-theme tracking issue yet (cf.
+access-om3-paper-1#23), so these are listed by notebook stem -- DRAFT
+groupings, please review. Once such an issue exists, set CATEGORIES_SOURCE to
+its URL and the landing-page intro will link to it.
+
 Confidence varies by entry -- some notebook stems are named directly in
 an issue title (high confidence), others are inferred from a general
 "Evaluation: ..." issue's description (lower confidence, worth a human
@@ -42,4 +52,12 @@ ISSUES: dict[str, str] = {
     "autocorrelation_and_amplitude": _MEGA,
     "Bottom_age_tracer":             _MEGA,
     "Transects":                     _MEGA,
+}
+
+# DRAFT -- proposed groupings, to be confirmed by the CM3 evaluation team.
+CATEGORIES: dict[str, list[int | str]] = {
+    "Global means and conservation":   ["global-time-series", "water-conservation", "flux-conservation"],
+    "Ocean":                           ["salinity", "SST_trend_global", "Bottom_age_tracer", "Transects"],
+    "Atmosphere and radiation":        ["TOA_CRE"],
+    "Variability":                     ["autocorrelation_and_amplitude"],
 }

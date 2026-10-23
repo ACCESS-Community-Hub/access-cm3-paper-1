@@ -77,16 +77,16 @@ echo ""
 # please add your script name to this `array` variable, spaces are between
 # script names, script name does not include `*.ipynb` extension
 array=(
-    00_template_notebook
+    # 00_template_notebook   # template for new notebooks: not run or published
     global-time-series
     salinity
     water-conservation
     flux-conservation
     autocorrelation_and_amplitude
-    Bottom_age_tracer
+    # Bottom_age_tracer   # OM3-derived; use the #5 OM3-notebook route instead
     SST_trend_global
     TOA_CRE
-    Transects
+    # Transects   # OM3-derived; use the #5 OM3-notebook route instead
 )
 
 printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"

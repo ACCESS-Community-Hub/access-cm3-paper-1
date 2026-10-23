@@ -21,14 +21,14 @@ its URL and the landing-page intro will link to it.
 Confidence varies by entry -- some notebook stems are named directly in
 an issue title (high confidence), others are inferred from a general
 "Evaluation: ..." issue's description (lower confidence, worth a human
-check), and the rest fall back to the general mega-issue #1. Issues
+check). Notebooks with no known issue are left out (empty cell) rather
+than pointed at the mega-issue #1. Issues
 prefixed "Evaluation OM3:" (#32-42, #65-83) track individual OM3
 notebooks once they're aggregated into this site (see #5) -- they are
 NOT used here since that aggregation isn't part of this site yet.
 """
 
 _GH = "https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues"
-_MEGA = f"[#1]({_GH}/1) — Evaluation metrics for CM3 (mega-issue)"
 
 ISSUES: dict[str, str] = {
     # High confidence: notebook filename is named directly in the issue.
@@ -44,20 +44,14 @@ ISSUES: dict[str, str] = {
     "water-conservation":   f"[#29]({_GH}/29) — Evaluation: Global water budget time series",
     "flux-conservation":    f"[#28]({_GH}/28) — Evaluation: Coupled fluxes global means and relative errors",
 
-    # No distinct issue found for these -- fall back to the mega-issue.
-    # autocorrelation_and_amplitude and Transects have no notebook-specific
-    # issue at all yet; Bottom_age_tracer only has an "Evaluation OM3:"
-    # issue (#37) which tracks the *aggregated OM3* notebook of a similar
-    # name, not this CM3-native one -- using that here would misattribute it.
-    "autocorrelation_and_amplitude": _MEGA,
-    "Bottom_age_tracer":             _MEGA,
-    "Transects":                     _MEGA,
+    # No known issue yet (left out on purpose, add one when it exists):
+    # autocorrelation_and_amplitude.
 }
 
 # DRAFT -- proposed groupings, to be confirmed by the CM3 evaluation team.
 CATEGORIES: dict[str, list[int | str]] = {
     "Global means and conservation":   ["global-time-series", "water-conservation", "flux-conservation"],
-    "Ocean":                           ["salinity", "SST_trend_global", "Bottom_age_tracer", "Transects"],
+    "Ocean":                           ["salinity", "SST_trend_global"],
     "Atmosphere and radiation":        ["TOA_CRE"],
     "Variability":                     ["autocorrelation_and_amplitude"],
 }

@@ -142,7 +142,7 @@ om3_array=(
     MLD_manual
     Transects-mixing
     # numerical_mixing_ACCESS_OM3   # not expected to work on CM3: needs a temperature diagnostic CM3 doesn't write
-    Truncation_locations
+    # Truncation_locations   # not expected to work on CM3: needs ocean.stats, which CM3 does not write (runs, but makes no figures)
 )
 
 # Passed to mkfigs-run as CM3 names plus <om3_dir>/<name> paths. A list given

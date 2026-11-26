@@ -89,8 +89,8 @@ array=(
     # Transects   # OM3-derived; use the #5 OM3-notebook route instead
 )
 
-printf -v MKFIGS_NOTEBOOKS '%s:' "${array[@]}"
-MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS%:}"
+printf -v _all_notebooks '%s:' "${array[@]}"
+MKFIGS_NOTEBOOKS="${MKFIGS_NOTEBOOKS:-${_all_notebooks%:}}"
 export MKFIGS_NOTEBOOKS
 
 # ---------------------------------------------------------------------------

@@ -23,7 +23,7 @@ an issue title (high confidence), others are inferred from a general
 "Evaluation: ..." issue's description (lower confidence, worth a human
 check). Notebooks with no known issue are left out (empty cell) rather
 than pointed at the mega-issue #1. Issues
-prefixed "Evaluation OM3:" (#32-42, #65-98) track individual OM3
+prefixed "Evaluation OM3:" (#32-42, #65-98, #103) track individual OM3
 notebooks run on CM3 (see #5); they are used for the OM3 notebooks that
 mkfigs.sh runs from the access-om3-paper-1 submodule (`om3_array`), which
 are keyed here by their OM3 notebook name.
@@ -77,6 +77,7 @@ ISSUES: dict[str, str] = {
     "Transects-mixing":                       f"**[CM3 #91: Meridional transects of 1993-2017 mean potential temperature and salinity]({_GH}/91)** ([OM3 #13]({_OM3}/13))",
     "WM_evaluation":                          f"**[CM3 #98: Water mass density change hovmoller]({_GH}/98)** ([OM3 #106]({_OM3}/106))",
     "MLD_manual":                             f"**[CM3 #65: Mixed layer depth]({_GH}/65)** ([OM3 #38]({_OM3}/38))",
+    "SeaIce_speed":                           f"**[CM3 #103: Sea ice drift]({_GH}/103)** ([OM3 #51]({_OM3}/51))",
 }
 
 # DRAFT -- proposed groupings, to be confirmed by the CM3 evaluation team.
@@ -91,7 +92,7 @@ CATEGORIES: dict[str, list[int | str]] = {
         "temp-salt-vs-depth-latitude", "temp-salt-vs-depth-time", "timeseries",
         "Transects", "Transects-mixing", "WM_evaluation", "MLD_manual",
     ],
-    "Sea ice":                         ["SeaIce_area", "SeaIce_Vol", "SeaIce_mass_budget_climatology"],
+    "Sea ice":                         ["SeaIce_area", "SeaIce_Vol", "SeaIce_mass_budget_climatology", "SeaIce_speed"],
     "Atmosphere and radiation":        ["TOA_CRE"],
     "Variability":                     ["autocorrelation_and_amplitude"],
 }

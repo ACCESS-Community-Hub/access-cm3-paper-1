@@ -135,7 +135,7 @@ om3_array=(
     # wombatlite_global   # not expected to work on CM3: no WOMBATlite (no3) in CM3
     Currents_streamfunction_variability
     SeaIce_Vol
-    # SeaIce_speed   # not expected to work on CM3: needs sea-ice output CM3 doesn't have (empty datastore search)
+    SeaIce_speed
     temp-salt-vs-depth-latitude
     Transects
     WM_evaluation

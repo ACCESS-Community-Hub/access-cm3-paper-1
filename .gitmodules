@@ -1,3 +1,6 @@
 [submodule "external/access-model-mkfigs"]
 	path = external/access-model-mkfigs
 	url = https://github.com/ACCESS-NRI/access-model-mkfigs.git
+[submodule "external/access-om3-paper-1"]
+	path = external/access-om3-paper-1
+	url = https://github.com/ACCESS-Community-Hub/access-om3-paper-1.git
